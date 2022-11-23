@@ -1,0 +1,258 @@
+--PROD-69283 Global CJD for last 12 months - All Clients, All Regions
+
+
+SELECT 'Education advice/services' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+   
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE())
+  AND ((Job_Subject LIKE '%school%' OR Job_Subject LIKE '%Education%')
+  AND (Job_Type IN ('Teacher / Tutor','Schools: Summer Schools / Camps','Educational','Foreign Language','Schools: Secondary','Complimentary')
+  OR Job_Group IN ('Learning','Professionals & Specialists','Learning / Experience','Experience')))
+
+UNION ALL
+
+SELECT 'Visa Assistance' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Job_Subject LIKE '%VISA Assistance%'
+
+UNION ALL
+
+  SELECT 'Travel destination advice including vaccinations' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND (Job_Subject LIKE '%travel restrictions%' OR Job_Subject LIKE  '%vaccine information%')
+
+UNION ALL
+
+  SELECT 'Foreign exchange / currency' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Member_ID <> '4810130'
+  AND (Job_Subject LIKE '%currency exchange%' OR Job_Subject LIKE '%currency%')
+
+UNION ALL
+
+  SELECT 'Foreign exchange / currency' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Member_ID <> '4810130'
+  AND (Job_Subject LIKE '%currency exchange%' OR Job_Subject LIKE '%currency%')
+
+UNION ALL
+
+  SELECT 'Airport fast track' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Job_Subject LIKE '%Airport fast track%'
+
+UNION ALL
+
+  SELECT 'Wellness and spa' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND (Job_type IN ('Spa','Massage','Hotel Spa','Salon','Alternative Medicine','Surprise & Delight','Medical')
+       AND Job_Subject LIKE '%spa%')
+
+UNION ALL
+
+  SELECT 'Gift purchase' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Job_Subject LIKE '%Gift%' AND Job_White_Black = 'Black'
+
+UNION ALL
+
+  SELECT 'Personal shopping' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Job_Subject like '%Personal shopping%'
+
+UNION ALL
+
+  SELECT 'Relocation services' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Job_Subject LIKE '%Relocation%'
+
+UNION ALL
+
+  SELECT 'Domestic services' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND (Job_Dept = 'Maintain and Repair' OR Job_Group = 'Home' OR
+  Job_Type IN ('Domestic Staff','Laundry & Dry Cleaning','decorating'))
+  
+UNION ALL
+
+  SELECT 'Airport meet and greet' AS [Data_Point]
+      ,[Job_ID]
+      ,[Job_Brief_Date]
+      ,[Job_Subject]
+      ,[Job_Dept]
+      ,[Job_Group]
+      ,[Job_Type]
+	  ,Job_Operational_OSS_OLR
+      ,[Member_Scheme_Name]
+      ,[Created_Employee_Team]
+      ,[Created_Employee_Subteam]
+      ,[Created_Employee_Specalist_Team]
+      ,[Created_Employee_Office]
+
+  FROM [TenDataWarehouse_Internal].[dbo].[REP_CJRD_20170501]
+
+  WHERE Job_Brief_Date > DATEADD(month,-12, GETDATE()) 
+  AND Job_Subject LIKE '%Airport meet and greet%'
